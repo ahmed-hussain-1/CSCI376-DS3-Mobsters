@@ -61,7 +61,7 @@ def main():
 
             if recognized_gesture in key_mappings:
                 keys = key_mappings[recognized_gesture]
-                if isinstance(keys, str):
+                if isinstance(keys, str): # convert string into list for easy iteration
                     keys = [keys]
 
                 for key in keys:
@@ -71,7 +71,7 @@ def main():
                         held_keys[key] = True
             else:
             # release keys
-                for key in list(held_keys.keys()):
+                for key in list(held_keys.keys()): # if keys were held down (bool), release the key up 
                     pyautogui.keyUp(key)
                     del held_keys[key]
 
@@ -79,7 +79,7 @@ def main():
             # if recognized_gesture == "Open_Palm":
             #     # pyautogui.press('right')     # press the left arrow key
             #     pyautogui.press('right')  # hold down the shift key
-
+            
             # if recognized_gesture == "Closed_Fist":
             #     pyautogui.press('left')
 
